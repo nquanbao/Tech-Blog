@@ -1,0 +1,12 @@
+{{#each users as |user| }}
+<div class="container">
+  <div class="notification is-primary">
+    {{user.post.title}}
+  </div>
+  <div class="box">
+    {{user.post.content}}
+  </div>
+</div>
+</br>
+{{/each}}
+<button class="button">New Post</button>
