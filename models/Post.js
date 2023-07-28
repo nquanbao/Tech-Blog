@@ -29,13 +29,6 @@ Post.init(
         model: 'user',
         key: 'id',
       },
-    },
-    dashboard_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'dashboard',
-        key: 'id',
-      },
     }
   },
   {

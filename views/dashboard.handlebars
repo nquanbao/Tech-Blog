@@ -1,12 +1,12 @@
-{{#each users as |user| }}
+{{#each posts as |post| }}
 <div class="container">
   <div class="notification is-primary">
-    {{user.post.title}}
+    <a href="/posts/{{post.id}}">{{post.title}}</a>
   </div>
   <div class="box">
-    {{user.post.content}}
+    {{post.content}}
   </div>
+  <p>Created by : {{post.user.name}} on {{format_date post.date_created}} </p>
+  </br>
 </div>
-</br>
 {{/each}}
-<button class="button">New Post</button>

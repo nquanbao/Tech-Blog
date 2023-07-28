@@ -1,22 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require('../../models');
-const withAuth = require('../../utils/auth');
-
-router.get('/', async (req, res) => {
-  try {
-   
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
-    });
-    const users = userData.get({ plain: true });
-
-    
-    res.render('dashboard', {users});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+const { User} = require('../../models');
 
 router.post('/', async (req, res) => {
   try {

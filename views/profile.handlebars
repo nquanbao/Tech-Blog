@@ -1,0 +1,25 @@
+
+  <div class="col-md-6 project-list">
+    <h3 class="margin-left">Current Projects:</h3>
+    </br>
+    {{#each posts as |post|}}
+  
+      <div class="container">
+        <div class="notification is-primary"> <button class="button is-primary" id="newpostBtn">
+          <a href="/editpost/{{post.id}}">{{post.title}}</a></button>
+        </div>
+        <div class="box">
+          {{post.content}}
+      </div>
+      <p>Created by : {{post.user.name}} on {{format_date post.date_created}} <span class="tag is-success">Delete Post <button class="delete is-small" data-id="{{post.id}}"></button></span></p>
+      </br>
+    {{/each}}
+  </div>
+  </br>
+  <div class="field is-grouped is-grouped-centered">
+  <p class="control">
+    <button class="button is-primary" id="newpostBtn"><a href="/newpost">New Post</a></button>
+  </p>
+  </div>
+
+  <script src="./js/profile.js" ></script>

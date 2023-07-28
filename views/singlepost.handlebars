@@ -1,9 +1,12 @@
+
 <div class="container">
   <div class="notification is-primary">
-    {{post.title}}
+    {{title}}
   </div>
   <div class="box">
-    {{post.content}}
+    {{content}}
   </div>
-  <p>Created by : {{post.user.name}}</p>
+  <p>Created by : {{user.name}} on {{format_date date_created}} </p>
+  </br>
 </div>
+

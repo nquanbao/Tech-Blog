@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Blog</title>
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 
@@ -16,7 +17,7 @@
                 <a href="/" class="navbar-item">
                     Home
                 </a>
-                <a class="navbar-item">
+                <a href="/dashboard" class="navbar-item">
                     Dashboard
                 </a>
                {{#if logged_in}}
@@ -32,7 +33,7 @@
         </div>
     </nav>
     <div class="buttons">
-        <button class="button is-primary">Tech Blog</button>
+        <a href="/"><button class="button is-primary margin-left">Tech Blog</button></a>
     </div>
     </br>
 </header>
@@ -40,7 +41,7 @@
     {{{ body }}}
 </main>
 {{#if logged_in}}
-<script src="../../public/js/logout.js"></script>
+<script src="/js/logout.js"></script>
 {{/if}}
 </body>
 <footer class="footer">
