@@ -1,7 +1,6 @@
 const UpdatePost = async (event) => {
     event.preventDefault();
   
-    // Collect values from the login form
     const title = document.querySelector('#title-post').value.trim();
     const content = document.querySelector('#content-post').value.trim();
     if(event.target.hasAttribute('data-id')){

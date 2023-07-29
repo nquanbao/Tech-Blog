@@ -5,8 +5,10 @@
   </div>
   <div class="box">
     {{post.content}}
+    </br>
+    </br>
+    Created by : {{post.user.name}} on {{format_date post.date_created}}
   </div>
-  <p>Created by : {{post.user.name}} on {{format_date post.date_created}} </p>
   </br>
 </div>
 {{/each}}
