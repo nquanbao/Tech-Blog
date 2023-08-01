@@ -77,29 +77,12 @@ router.get('/newpost', async (req, res) => {
   }
 });
 
-router.get('/newcomment/:id', async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: Comment}],
-    });
-    const post = postData.get({ plain: true });
-
-    res.render('newcomment', {
-      ...post,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(400).json(err)
-  }
-});
-
 router.get('/editpost/:id', withAuth, async (req, res) => {
   try {
     const posttData = await Post.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: User
         },
       ],
     });
@@ -109,6 +92,22 @@ router.get('/editpost/:id', withAuth, async (req, res) => {
     res.render('editpost', {
       ...post,
       logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/commentpost/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [{ model: Comment},{ model: User}],
+    });
+    const post = postData.get({ plain: true });
+
+    res.render('newcomment', {
+      ...post,
+      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);

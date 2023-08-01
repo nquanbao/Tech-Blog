@@ -1,8 +1,7 @@
-
+  <h3 class="margin-left"><strong>Welcome&nbsp;{{name}}</strong></br>Your Current Projects:</h3>
+    </br>
   {{#if posts.length}}
   <div class="col-md-6 project-list">
-    <h3 class="margin-left">Current Projects:</h3>
-    </br>
     {{#each posts as |post|}}
   
       <div class="container">
@@ -13,7 +12,7 @@
           {{post.content}}
           </br>
           </br>
-          Created by : {{post.user.name}} on {{format_date post.date_created}}
+          Created on {{format_date post.date_created}}
       </div>
       <p><span class="tag deleteBtn is-success">Delete Post <button class="delete is-small" data-id="{{post.id}}"></button></span>&nbsp;&nbsp;<a href="/editpost/{{post.id}}">Edit Post</a></p>
       </br>
