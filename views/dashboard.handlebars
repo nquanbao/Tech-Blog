@@ -1,14 +1,31 @@
-{{#each posts as |post| }}
-<div class="container">
-  <div class="notification is-primary">
-    <a href="/posts/{{post.id}}">{{post.title}}</a>
+  <h3 class="margin-left"><strong>Welcome&nbsp;{{name}}</strong></br>Your Current Projects:</h3>
+    </br>
+  {{#if posts.length}}
+  <div class="col-md-6 project-list">
+    {{#each posts as |post|}}
+  
+      <div class="container">
+        <div class="notification is-primary"> <button class="button is-primary" id="newpostBtn">
+          <a href="/posts/{{post.id}}">{{post.title}}</a></button>
+        </div>
+        <div class="box">
+          {{post.content}}
+          </br>
+          </br>
+          <strong>Created on {{format_date post.date_created}}</strong>
+      </div>
+      <p><span class="tag deleteBtn is-success">Delete Post <button class="delete is-small" data-id="{{post.id}}"></button></span>&nbsp;&nbsp;<a href="/editpost/{{post.id}}">Edit Post</a></p>
+      </br>
+    {{/each}}
+
   </div>
-  <div class="box">
-    {{post.content}}
-    </br>
-    </br>
-    Created by {{post.user.name}} on {{format_date post.date_created}}
+  {{/if}}
+  </br>
+  <div class="field is-grouped is-grouped-centered">
+  <p class="control">
+    <button class="button is-primary" id="newpostBtn"><a href="/newpost">New Post</a></button>
+  </p>
   </div>
   </br>
-</div>
-{{/each}}
+
+  <script src="./js/profile.js" ></script>

@@ -15,7 +15,7 @@ const UpdatePost = async (event) => {
     
         if (response.ok) {
           // If successful, redirect the browser to the profile page
-          document.location.replace('/profile');
+          document.location.replace('/dashboard');
         } else {
           alert(response.statusText);
         }
